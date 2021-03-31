@@ -1,0 +1,132 @@
+body{
+  background-color: #111d4a;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ textarea, .counterFooter, .button, h2 {
+     font-family: verdana, sans;
+ }
+
+.container{
+  display: grid;
+  height: 100vh;
+  grid-gap: 1em;
+  grid-template-areas: 
+    "head head"
+    "content content"
+    "button button"
+    "counter counter";   
+  grid-template-columns: auto auto;
+  grid-template-rows: 10em 10em 5em;
+}
+
+.header{
+    grid-area: head;
+    width: 100%;
+    background-image: url('http://tomsclassroom.com/winter.jpg');
+    object-fit: cover;
+    background-size: 100%;
+    background-position: center
+}
+
+#inputArea{
+    grid-area: content;
+    padding: 1em;
+    height: 99%;
+    width: 80%;
+    justify-self: center;
+    color: white;
+    position: relative
+}
+
+#inputArea>label {
+    position: absolute;
+    top: 0em;
+    left: 2.5em;
+    background-color: #111d4a;
+    padding: 0 .3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5em
+}
+
+#textArea{
+    /* background-color: #05cbe9; */
+    height: 90%;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    border-radius: .5em;
+    box-sizing: border-box;
+    /* font-weight: 900;
+    font-size: 1.01em; */
+    padding: .5em;
+    animation: 1s blink step-end infinite;  
+}
+
+textarea::placeholder{
+    color:white;
+    font-weight: 200;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+    }
+}
+
+#counterFooter {
+  grid-area: counter;
+  justify-self: center;
+  font-size:1.4rem;
+  color: #fff;
+}
+
+button{
+  grid-area: button;
+  background-color: rgb(29, 161, 242);
+  border-radius: .5em;
+  padding: 0 1%;
+  width: 80%;
+  max-width: 320px;
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+button h2{
+    color: #fff;
+}
+
+.buttonDisabled {
+   opacity: .5;
+   cursor: default;
+   background-color: black;
+}
+
+@media(min-width:600px){
+
+   .container{
+        display: grid;
+        grid-gap: em;
+        grid-gap: 1em;
+        grid-template-areas: 
+            "head ."
+            "head content"
+            "head button"
+            "head counter";   
+        grid-template-columns: 40% auto;
+        grid-template-rows: 2em 33% 33% auto;
+    }
+
+    .header{
+        background-size: cover;
+        object-fit: cover;
+        background-position: center;
+    }
+    
+}
